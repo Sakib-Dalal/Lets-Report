@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Gaegu&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.status-card {
+    margin: 30px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #FBF5E5;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.status-card-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 20px;
+}
+
+.status-text {
+    color: #F14A00;
+    padding-left: 20px;
+    font-family: "MuseoModerno", serif;
+}
+
+.status-number-left {
+    background-color: #F14A00;
+    color: #FBF5E5;
+    font-family: "MuseoModerno", serif;
+    border-radius: 20px 0px 0px 20px;
+    display: flex;
+    padding-left: 20px;
+    justify-content: left;   
+    align-items: center; 
+}
+
+.status-number-right {
+    background-color: #F14A00;
+    color: #FBF5E5;
+    font-family: "MuseoModerno", serif;
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    padding-right: 20px;
+    justify-content: right;   
+    align-items: center; 
+}
