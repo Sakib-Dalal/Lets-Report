@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Gaegu&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.title-color {
+    color: #F14A00;
+    font-family: "MuseoModerno", serif;
+    font-size: 28px;
+}
+
+.title-report {
+    background-color: #F14A00;
+    color: #FFFFFF;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.dropdown-content {
+    color: #F14A00;
+    font-family: "MuseoModerno", serif;
+    font-size: 14px;
+    border-radius: 20px;
+    border: 1px solid #F14A00;
+    margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.dropdown-content:hover {
+    background-color: #F14A00;
+    color: #FFFFFF;
+}
+
+.navtoggle {
+    border: none;
+    height: 60px;  
+    width: 60px;  
+    display: flex;
+    border-radius: 25%;
+    justify-content: center;
+}
+
+.image-toggle {
+    height: 50px;
+}
