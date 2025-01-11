@@ -15,8 +15,8 @@ function Card(props) {
             <img className="issue_image" src={props.issue_image} />
             <p className="post-info">{props.information}</p>
             <div className="post-footer">
-                <p>Likes: {props.likes}</p>
-                <p>Status: {props.status}</p>
+                <p className="likes">Likes: {props.likes}</p>
+                <p className="status">Status: {props.status}</p>
             </div>
             <br></br>
         </div>

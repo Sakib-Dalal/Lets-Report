@@ -20,7 +20,7 @@ function Feed() {
             user_image: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
             name: "Kali Linux",
             location: "Kolhapur",
-            issue_image: "https://images.wisegeek.com/garbage-on-street.jpg",
+            issue_image: "https://static2.businessinsider.com/image/5600530b9dd7cc15008bbf59-4604-3453/ap_305887712805.jpg",
             information: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             likes: 100,
             status: "Pending",

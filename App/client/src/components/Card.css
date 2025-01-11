@@ -27,10 +27,15 @@
 .user-info {
     display: flex;
     justify-content: left;
+    font-family: "MuseoModerno", serif;
+    color: black;
+    margin: 10px;
+    border-radius: 16px;
 }
 
 .user-info h3 {
     padding-left: 20px;
+
 }
 
 .user-info p {
@@ -39,10 +44,29 @@
 
 .post-info {
     text-align: justify;
+    color: black;
 }
 
 .post-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.likes {
+    background-color: lightgreen;
+    color: green;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 16px;
+    font-family: "MuseoModerno", serif;
+}
+
+.status {
+    background-color: lightblue;
+    color: navy;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 16px;
+    font-family: "MuseoModerno", serif;
 }
