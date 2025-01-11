@@ -46,7 +46,7 @@ def file_report(report_data):
 
         # Add metadata
         report_data['timestamp'] = datetime.utcnow().isoformat()
-        report_data['status'] = "new"  # Default status
+        report_data['status'] = "pending"  # Default status
         report_data['upvotes'] = 0  # Default upvotes
 
         # Store the report
