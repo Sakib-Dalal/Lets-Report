@@ -1,37 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';  // make sure you import useNavigate
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Dashboard() {
   const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(null);  // Define error state
   const location = useLocation();
   const username = location.state?.username || 'Guest';
-
-  const handleStatusChange = async (postId, newStatus) => {
-    try {
-      const response = await fetch('https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          reportId: postId,
-          status: newStatus,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to update the status');
-      }
-
-      const updatedPosts = posts.map(post =>
-        post.id === postId ? { ...post, status: newStatus } : post
-      );
-      setPosts(updatedPosts);
-    } catch (error) {
-      console.error('Error updating status:', error);
-    }
-  };
+  const navigate = useNavigate();  // Initialize the navigate function
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,6 +36,7 @@ function Dashboard() {
         }
       } catch (error) {
         console.error('Error fetching data:', error);
+        setError('Failed to fetch posts.');
       }
     };
 
@@ -67,6 +44,12 @@ function Dashboard() {
   }, []);
 
   const sortedPosts = posts.sort((a, b) => b.totalAgreed - a.totalAgreed);
+
+  // Function to handle redirection to the PostDetail page
+  const handleViewIssue = (postId) => {  // Accept postId as parameter
+    // Navigate to the PostDetail page with the postId
+    navigate(`/post/${postId}`);
+  };
 
   return (
     <div className="d-flex">
@@ -77,6 +60,7 @@ function Dashboard() {
       </div>
       <div className="container-fluid p-5">
         <h2>Welcome, {username}</h2>
+        {error && <div className="alert alert-danger">{error}</div>}  {/* Show error message if any */}
         <div className="row">
           {sortedPosts.map((post) => (
             <div key={post.id} className="col-md-6">
@@ -94,23 +78,12 @@ function Dashboard() {
                   <div className="mt-3">
                     <p><strong>{post.totalAgreed} people agreed to this post.</strong></p>
                     <div>
+                      {/* Pass post.id to handleViewIssue */}
                       <button
-                        className={`btn ${post.status === 'pending' ? 'btn-warning' : 'btn-secondary'} me-2`}
-                        onClick={() => handleStatusChange(post.id, 'pending')}
+                        className="btn btn-primary"
+                        onClick={() => handleViewIssue(post.id)}  // Navigate on button click
                       >
-                        Pending
-                      </button>
-                      <button
-                        className={`btn ${post.status === 'complete' ? 'btn-success' : 'btn-secondary'} me-2`}
-                        onClick={() => handleStatusChange(post.id, 'complete')}
-                      >
-                        Complete
-                      </button>
-                      <button
-                        className={`btn ${post.status === 'inProgress' ? 'btn-primary' : 'btn-secondary'}`}
-                        onClick={() => handleStatusChange(post.id, 'inProgress')}
-                      >
-                        In Progress
+                        View Issue
                       </button>
                     </div>
                   </div>
