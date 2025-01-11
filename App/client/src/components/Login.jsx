@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -40,14 +41,22 @@ function Login() {
 
       // Check the status from the API response
       if (result.statusCode === 200) {
-        setMessage(`Login Successful. Welcome, ${result.username}!`);
-        navigate('/dashboard'); // Redirect to the Dashboard page
-      } else {
+        setMessage(`Login Successful. Welcome, !`);
+        
+        // Check if the result type is 'govt'
+        if (result.type === 'govt') {
+          navigate('/dashboard', { state: { username: result.name } });
+        } else {
+          // Optionally handle cases where the user is not 'govt'
+          setMessage(`You do not have access to the Dashboard ${result.name}.`);
+        }
+      }
+      else {
         setMessage('Login Failed. Please check your credentials.');
       }
     } catch (error) {
       console.error('Error occurred:', error);
-      setMessage('Error occurred. Please try again.');
+      setMessage('Error occurred. Please try again.',error);
     }
   };
 
@@ -93,7 +102,9 @@ function Login() {
               </div>
               <button type="submit" className="btn btn-primary w-100 btn-lg">Login</button>
             </form>
-            {message && <div className="alert alert-info mt-4">{message}</div>}
+            {message && <div className="alert alert-info mt-4">
+            
+              {message}</div>}
           </div>
         </div>
       </div>
