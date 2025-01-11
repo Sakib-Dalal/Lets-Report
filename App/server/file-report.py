@@ -48,6 +48,9 @@ def file_report(report_data):
             if 'longitude' in report_data['coordinates']:
                 report_data['coordinates']['longitude'] = Decimal(str(report_data['coordinates']['longitude']))
 
+        # Default upvotes
+        report_data['upvotes'] = 0
+
         # Add the report to the DynamoDB table
         reports_table.put_item(Item=report_data)
 
