@@ -2,4 +2,21 @@
     color: #F14A00;
     font-family: "MuseoModerno", serif;
     font-size: 18px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.map-img {
+    border-radius: 50px;
+    height: 500px;
+    width: 500;
+    margin-right: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .map-img {
+        height: 300px;
+        width: 100%;
+    }
 }

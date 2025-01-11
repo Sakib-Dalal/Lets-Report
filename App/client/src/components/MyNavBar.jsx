@@ -7,7 +7,7 @@ function MyNavBar() {
   return (
     <>
     <div>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="bg-body-white">
       <Container>
         <Navbar.Brand href="#home" className='title-color'>Let's <span className='title-report'>Report</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className='navtoggle'> <img src="/navbar-toggle.png" className='image-toggle' /> </Navbar.Toggle>

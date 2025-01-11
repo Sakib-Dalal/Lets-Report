@@ -1,0 +1,15 @@
+.myButton {
+    background-color: #F14A00;
+    border: none;
+    margin-bottom: 30px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
+    font-family: "MuseoModerno", serif;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}

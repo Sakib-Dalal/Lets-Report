@@ -1,0 +1,48 @@
+.user-img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.issue_image {
+    height: 200px;
+    width: 300px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .issue_image {
+        height: 200px;
+        width: 100%;
+    }
+}
+
+.feed-card {
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #F14A00;
+}
+
+.user-info {
+    display: flex;
+    justify-content: left;
+}
+
+.user-info h3 {
+    padding-left: 20px;
+}
+
+.user-info p {
+    padding-left: 20px;
+}
+
+.post-info {
+    text-align: justify;
+}
+
+.post-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

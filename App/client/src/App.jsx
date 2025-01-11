@@ -14,6 +14,8 @@ function App() {
             <Status />
             <div className="map-feed shadow">
                 <Map />
+                <br></br>
+                <br></br>
                 <Feed />
             </div>
         </>

@@ -1,17 +1,16 @@
 .map-feed {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
     margin: 30px;
     padding: 20px;
     border-radius: 30px;
     background-color: #FBF5E5;
-    height: 500px;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 @media only screen and (max-width: 600px) {
     .map-feed {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 }
