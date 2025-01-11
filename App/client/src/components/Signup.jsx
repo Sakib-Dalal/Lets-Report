@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const Signup = () => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState('user'); // Default to "user"
   const [message, setMessage] = useState('');
   
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -36,56 +36,63 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup-container">
-      <h2>Signup</h2>
-      {message && <p>{message}</p>}
+    <div className="container mt-5">
+      <h2 className="text-center">Signup</h2>
+      {message && <div className="alert alert-info">{message}</div>}
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
+        <div className="mb-3">
+          <label className="form-label">Name:</label>
           <input
             type="text"
+            className="form-control"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Username:</label>
+        <div className="mb-3">
+          <label className="form-label">Username:</label>
           <input
             type="text"
+            className="form-control"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Email ID:</label>
+        <div className="mb-3">
+          <label className="form-label">Email ID:</label>
           <input
             type="email"
+            className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="mb-3">
+          <label className="form-label">Password:</label>
           <input
             type="password"
+            className="form-control"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Type:</label>
-          <input
-            type="text"
+        <div className="mb-3">
+          <label className="form-label">Type:</label>
+          <select
+            className="form-select"
             value={type}
             onChange={(e) => setType(e.target.value)}
             required
-          />
+          >
+            <option value="user">user</option>
+            <option value="govt">govt</option>
+          </select>
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="btn btn-primary w-100">Sign Up</button>
       </form>
     </div>
   );

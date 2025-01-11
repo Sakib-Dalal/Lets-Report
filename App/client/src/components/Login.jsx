@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 function Login() {
@@ -6,6 +7,8 @@ function Login() {
   const [password, setPassword] = useState('');
   const [type, setType] = useState('');
   const [message, setMessage] = useState('');
+
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -36,8 +39,9 @@ function Login() {
       console.log("API Response:", result); // Log the API response
 
       // Check the status from the API response
-      if (result.statusCode === 200 ) {
+      if (result.statusCode === 200) {
         setMessage(`Login Successful. Welcome, ${result.username}!`);
+        navigate('/dashboard'); // Redirect to the Dashboard page
       } else {
         setMessage('Login Failed. Please check your credentials.');
       }
@@ -50,7 +54,7 @@ function Login() {
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
-        <div className="col-md-6 col-lg-4">
+        <div className="col-md-8 col-lg-6">  {/* Increased the column width */}
           <div className="card p-5 shadow-lg">
             <h2 className="text-center mb-4">Login</h2>
             <form onSubmit={handleLogin}>
