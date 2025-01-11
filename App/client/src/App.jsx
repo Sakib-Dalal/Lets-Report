@@ -1,14 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client"
-import MyNavBar from "./components/MyNavBar"
-
-function App() {
-
-    return (
-        <>
-            <MyNavBar />
-        </>
-    )
+import React from 'react';
+import Login from './components/Login'; // Make sure the path is correct
+import Signup from './components/Signup';
+const App=()=> {
+  return (
+    <div className="App">
+      <Login />
+      <Signup/>
+    </div>
+  );
 }
 
 export default App;
