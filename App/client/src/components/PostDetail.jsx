@@ -13,7 +13,7 @@ function PostDetail() {
     const fetchPostDetails = async () => {
       try {
         const response = await fetch(
-          `https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report?reportId=USER-1736607258-6QEE`
+          `https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report?reportId=USER-1736607258-6QEE`
         );
 
         if (!response.ok) {
@@ -45,7 +45,19 @@ function PostDetail() {
   const handleStatusChange = async (newStatus) => {
     try {
       const response = await fetch(
-        'https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
+        'https://thingproxy.freeboard.io/fetch/console.log('Post ID:', postId));
+console.log('Post Details:', postDetails);
+console.log('Loading Status:', loading);
+console.log('Error:', error);
+
+// Inside the useEffect hook
+console.log('Fetching post details...');
+console.log('Response:', response);
+console.log('Data:', data);
+
+// Inside the handleStatusChange function
+console.log('Updating status to:', newStatus);
+console.log('https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
         {
           method: 'PUT',
           headers: {
