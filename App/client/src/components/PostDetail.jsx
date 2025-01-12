@@ -57,7 +57,7 @@ console.log('Data:', data);
 
 // Inside the handleStatusChange function
 console.log('Updating status to:', newStatus);
-console.log('Response:', response);https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
+console.log('https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
         {
           method: 'PUT',
           headers: {
