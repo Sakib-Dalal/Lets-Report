@@ -45,7 +45,7 @@ function PostDetail() {
   const handleStatusChange = async (newStatus) => {
     try {
       const response = await fetch(
-        'https://thingproxy.freeboard.io/fetch/console.log('Post ID:', postId));
+        'https://thingproxy.freeboard.io/fetch/console.log('Post ID:', postId);
 console.log('Post Details:', postDetails);
 console.log('Loading Status:', loading);
 console.log('Error:', error);
