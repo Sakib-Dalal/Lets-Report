@@ -9,7 +9,7 @@ function Feed() {
     const [error, setError] = useState(null);
 
     // API endpoint
-    const APIFeed = "https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/trending";
+    const APIFeed = "https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/trending";
 
     useEffect(() => {
         // Fetch data from API
