@@ -101,8 +101,7 @@ function PostDetail() {
           {images && images.length > 0 && (
             <div className="post-images mb-3">
               <img
-
-                src={images[1]} // Only displaying the second image
+                src={images[1] || 'https://via.placeholder.com/300'}
                 alt="Post Image"
                 className="img-fluid rounded mb-2"
                 style={{ maxWidth: '300px' }}

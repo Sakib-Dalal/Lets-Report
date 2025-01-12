@@ -9,6 +9,9 @@ import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 import PostDetail from "./components/PostDetail";
 import MyNavBar from "./components/MyNavBar";
+import CreatePost from "./components/CreatePost";
+import Upload from "./components/Upload";
+
 
 function App() {
     return (
@@ -24,6 +27,7 @@ function App() {
                                 <MyNavBar />
                                 <Status />
                                 <div className="map-feed shadow">
+                                <CreatePost />
                                     <Map />
                                     <br></br>
                                     <br></br>
@@ -32,6 +36,7 @@ function App() {
                             </>
                         } 
                     />
+                    <Route path="/upload" element={<Upload />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/dashboard" element={<Dashboard />} />
