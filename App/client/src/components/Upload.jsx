@@ -1,7 +1,7 @@
 import "./Upload.css";
 
 function Upload() {
-    const APIPostData = "https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report";
+    const APIPostData = "https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report";
 
     async function handleSubmit(e) {
         e.preventDefault();
