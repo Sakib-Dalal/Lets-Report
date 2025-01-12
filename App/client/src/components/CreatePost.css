@@ -1,0 +1,23 @@
+.create-post-button {
+    display: flex;
+    justify-content: center;
+}
+
+.post {
+    background-color: lightblue;
+    color: navy;
+    padding: 14px 20px;
+    margin: 8px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 50px;
+    font-family: "MuseoModerno", serif;
+    display: flex;
+    justify-content: center;
+}
+
+.post:hover {
+    opacity: 1;
+}

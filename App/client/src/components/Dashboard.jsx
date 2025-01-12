@@ -53,7 +53,7 @@ function Dashboard() {
     <div className="d-flex">
             <div className="sidebar bg-dark text-white p-3" style={{ width: '280px', height: '100vh' }}></div>
       <div className="sidebar bg-dark text-white p-3" style={{position:'fixed',top:0,left:0, width: '260px', height: '100vh' }}>
-        <h3>Manae Issue</h3>
+        <h3>Manage Issue</h3>
         <p>Trending Issues</p>
       </div>
       <div className="container-fluid p-5">

@@ -1,0 +1,71 @@
+.upload-image {
+    margin: 30px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FBF5E5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    font-family: "MuseoModerno", serif;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "MuseoModerno", serif;
+  }
+  
+  .custom-upload-button {
+    background-color: #F14A00;
+    font-family: "MuseoModerno", serif;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    width: 100%;
+    max-width: 300px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .custom-upload-button:hover {
+    opacity: 0.8;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .upload-image {
+        margin: 20px;
+        padding: 10px;
+    }
+  
+    form {
+        padding: 20px;
+    }
+  
+    .custom-upload-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+  }
