@@ -8,7 +8,6 @@ function PostDetail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log(postId);
   useEffect(() => {
     const fetchPostDetails = async () => {
       try {
@@ -45,19 +44,7 @@ function PostDetail() {
   const handleStatusChange = async (newStatus) => {
     try {
       const response = await fetch(
-        'https://thingproxy.freeboard.io/fetch/console.log('Post ID:', postId));
-console.log('Post Details:', postDetails);
-console.log('Loading Status:', loading);
-console.log('Error:', error);
-
-// Inside the useEffect hook
-console.log('Fetching post details...');
-console.log('Response:', response);
-console.log('Data:', data);
-
-// Inside the handleStatusChange function
-console.log('Updating status to:', newStatus);
-console.log('https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
+        'https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
         {
           method: 'PUT',
           headers: {
@@ -115,7 +102,7 @@ console.log('https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/u
           {images && images.length > 0 && (
             <div className="post-images mb-3">
               <img
-                src={images[1]} // Only displaying the first image
+                src={images[1]} // Only displaying the second image
                 alt="Post Image"
                 className="img-fluid rounded mb-2"
                 style={{ maxWidth: '300px' }}
