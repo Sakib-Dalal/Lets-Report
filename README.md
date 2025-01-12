@@ -38,13 +38,13 @@
 
 ---
 
-## How to Contribute
+## How to use
 
-1. Clone the repository.
-2. Set up your AWS DynamoDB and Lambda environment.
-3. Install dependencies using `npm install`.
-4. Run the application locally using `npm start`.
-
+1. Vist vercel site.
+2. To access Govt. dashboard use this credentials:
+ email- manav@gmail.com 
+ pass - 123
+ type - govt
 ---
 
 **Empowering communities, fostering transparency, and bridging the gap between citizens and governance.**
