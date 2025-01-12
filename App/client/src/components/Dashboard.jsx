@@ -13,7 +13,7 @@ function Dashboard() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/trending?'
+          'https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/trending?'
         );
         if (!response.ok) throw new Error('Network response was not ok');
         
@@ -44,10 +44,10 @@ function Dashboard() {
     fetchData();
   }, []);
 
-  const handleViewIssue = (reportid) => {
-    navigate(`/post/${reportid}`);
-    
+  const handleViewIssue = (postId) => {
+    navigate(`/post/${postId}`);
   };
+  
 
   return (
     <div className="d-flex">
@@ -75,7 +75,7 @@ function Dashboard() {
                   {post.postImage && <img src={post.postImage} alt="post" className="img-fluid mt-3" />}
                   <div className="mt-3">
                     <p><strong>{post.totalAgreed} people agreed to this post.</strong></p>
-                    <button className="btn btn-primary" onClick={() => handleViewIssue(post.reportid)}>
+                    <button className="btn btn-primary" onClick={() => handleViewIssue(post.id)}>
                       View Issue
                     </button>
                   </div>
