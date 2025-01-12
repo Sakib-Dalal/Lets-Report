@@ -29,7 +29,7 @@
 
 ## Team
 
-- **Team Name:** **Innovators Unite**
+- **Team Name:** **Team Bugendai**
 - **Team Members:**
   - **Manav Patni**
   - **Mohit Rathi**
