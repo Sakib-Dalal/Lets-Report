@@ -14,7 +14,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const apiUrl = 'https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/users';
+    const apiUrl = 'https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/users';
     const payload = {
       name,
       username,

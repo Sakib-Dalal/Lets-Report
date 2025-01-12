@@ -13,7 +13,7 @@ function PostDetail() {
     const fetchPostDetails = async () => {
       try {
         const response = await fetch(
-          `https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report?reportId=USER-1736607258-6QEE`
+          `https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report?reportId=USER-1736607258-6QEE`
         );
 
         if (!response.ok) {
@@ -45,7 +45,7 @@ function PostDetail() {
   const handleStatusChange = async (newStatus) => {
     try {
       const response = await fetch(
-        'https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
+        'https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
         {
           method: 'PUT',
           headers: {

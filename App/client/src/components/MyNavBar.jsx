@@ -46,7 +46,7 @@ function MyNavBar() {
               Let's <span className="title-report">Report</span>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" className="navtoggle">
-              <img src="/navbar-toggle.png" className="image-toggle" />
+              <img src="https://cdn-icons-png.flaticon.com/512/7066/7066144.png" className="image-toggle" />
             </Navbar.Toggle>
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
