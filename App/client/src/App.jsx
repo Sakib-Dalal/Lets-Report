@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";  // Import necessary components for routing
 import Status from "./components/Status";
 import Map from "./components/Map";
 import Feed from "./components/Feed";
