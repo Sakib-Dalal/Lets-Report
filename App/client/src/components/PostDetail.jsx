@@ -3,17 +3,16 @@ import { useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function PostDetail() {
-  const { postId } = useParams(); // Get postId from URL
+  const { postId } = useParams();
   const [postDetails, setPostDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log(postId);
   useEffect(() => {
     const fetchPostDetails = async () => {
       try {
         const response = await fetch(
-          `https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report?reportId=USER-1736607258-6QEE`
+          `https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report?reportId=USER-1736607258-6QEE`
         );
 
         if (!response.ok) {
@@ -25,6 +24,7 @@ function PostDetail() {
 
         const data = await response.json();
         const { report } = data;
+
         if (report) {
           setPostDetails(report);
         } else {
@@ -41,31 +41,18 @@ function PostDetail() {
     fetchPostDetails();
   }, [postId]);
 
-  // Function to handle the status update
   const handleStatusChange = async (newStatus) => {
     try {
       const response = await fetch(
-        'https://thingproxy.freeboard.io/fetch/console.log('Post ID:', postId);
-console.log('Post Details:', postDetails);
-console.log('Loading Status:', loading);
-console.log('Error:', error);
-
-// Inside the useEffect hook
-console.log('Fetching post details...');
-console.log('Response:', response);
-console.log('Data:', data);
-
-// Inside the handleStatusChange function
-console.log('Updating status to:', newStatus);
-console.log('https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
+        'https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/update-status',
         {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            reportId: postId, // Post ID from URL
-            status: newStatus, // New status string (pending, in progress, completed)
+            reportId: postId,
+            status: newStatus,
           }),
         }
       );
@@ -74,7 +61,6 @@ console.log('https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/u
         const errorMessage = `Failed to update status. Status: ${response.status} ${response.statusText}`;
         setError(errorMessage);
       } else {
-        // If successful, update the status locally
         setPostDetails((prevDetails) => ({
           ...prevDetails,
           status: newStatus,
@@ -115,7 +101,7 @@ console.log('https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/u
           {images && images.length > 0 && (
             <div className="post-images mb-3">
               <img
-                src={images[1]} // Only displaying the first image
+                src={images[1] || 'https://via.placeholder.com/300'}
                 alt="Post Image"
                 className="img-fluid rounded mb-2"
                 style={{ maxWidth: '300px' }}
@@ -134,7 +120,6 @@ console.log('https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/u
           <p><strong>Latitude:</strong> {latitude || 'No latitude available'}</p>
           <p><strong>Longitude:</strong> {longitude || 'No longitude available'}</p>
 
-          {/* Buttons for changing the status */}
           <div className="mt-3">
             <button
               className="btn btn-warning me-2"
