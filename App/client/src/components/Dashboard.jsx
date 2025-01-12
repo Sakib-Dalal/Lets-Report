@@ -13,7 +13,7 @@ function Dashboard() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/trending?'
+          'https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/trending?'
         );
         if (!response.ok) throw new Error('Network response was not ok');
         

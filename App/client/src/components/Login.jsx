@@ -23,7 +23,7 @@ function Login() {
     console.log("Sending Data:", data); // Log the data being sent to the API
 
     try {
-      const response = await fetch('https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/users/verify', {
+      const response = await fetch('https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/users/verify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
