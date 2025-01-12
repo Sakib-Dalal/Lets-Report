@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
-
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [type, setType] = useState('');
   const [message, setMessage] = useState('');
+  const [uid, setUid] = useState(null); // State variable to store the UID
 
   const navigate = useNavigate(); // Initialize useNavigate hook
 
@@ -39,9 +39,14 @@ function Login() {
       const result = await response.json();
       console.log("API Response:", result); // Log the API response
 
+      // Store the uid in the state
+      if (result.uid) {
+        setUid(result.uid); // Save the uid to the state
+      }
+
       // Check the status from the API response
       if (result.statusCode === 200) {
-        setMessage(`Login Successful. Welcome, !`);
+        setMessage(`Login Successful. Welcome, ${result.name}!`);
         
         // Check if the result type is 'govt'
         if (result.type === 'govt') {
@@ -103,8 +108,8 @@ function Login() {
               <button type="submit" className="btn btn-primary w-100 btn-lg">Login</button>
             </form>
             {message && <div className="alert alert-info mt-4">
-            
-              {message}</div>}
+              {message}
+            </div>}
           </div>
         </div>
       </div>

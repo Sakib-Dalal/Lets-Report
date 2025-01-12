@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';  // make sure you import useNavigate
+import { useLocation, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Dashboard() {
   const [posts, setPosts] = useState([]);
-  const [error, setError] = useState(null);  // Define error state
+  const [error, setError] = useState(null);
   const location = useLocation();
   const username = location.state?.username || 'Guest';
-  const navigate = useNavigate();  // Initialize the navigate function
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,8 +15,9 @@ function Dashboard() {
         const response = await fetch(
           'https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/report/trending?'
         );
+        if (!response.ok) throw new Error('Network response was not ok');
+        
         const data = await response.json();
-
         if (data.statusCode === 200) {
           const apiPosts = data.reports.map((report) => ({
             id: report.reportId,
@@ -31,11 +32,11 @@ function Dashboard() {
             totalAgreed: report.upvotes,
             status: report.status || 'pending',
           }));
-
           setPosts(apiPosts);
+        } else {
+          setError('Failed to fetch posts: Invalid data received.');
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
         setError('Failed to fetch posts.');
       }
     };
@@ -43,26 +44,23 @@ function Dashboard() {
     fetchData();
   }, []);
 
-  const sortedPosts = posts.sort((a, b) => b.totalAgreed - a.totalAgreed);
-
-  // Function to handle redirection to the PostDetail page
-  const handleViewIssue = (postId) => {  // Accept postId as parameter
-    // Navigate to the PostDetail page with the postId
+  const handleViewIssue = (postId) => {
     navigate(`/post/${postId}`);
+    
   };
 
   return (
     <div className="d-flex">
-      <div className="sidebar bg-dark text-white p-3" style={{ width: '260px', height: '100vh' }}></div>
-      <div className="sidebar bg-dark text-white p-3" style={{ position: 'fixed', width: '250px', height: '100vh', top: 0, left: 0 }}>
-        <h3>Dashboard</h3>
-        <ul className="list-unstyled"></ul>
+            <div className="sidebar bg-dark text-white p-3" style={{ width: '280px', height: '100vh' }}></div>
+      <div className="sidebar bg-dark text-white p-3" style={{position:'fixed',top:0,left:0, width: '260px', height: '100vh' }}>
+        <h3>Manae Issue</h3>
+        <p>Trending Issues</p>
       </div>
       <div className="container-fluid p-5">
         <h2>Welcome, {username}</h2>
-        {error && <div className="alert alert-danger">{error}</div>}  {/* Show error message if any */}
+        {error && <div className="alert alert-danger">{error}</div>}
         <div className="row">
-          {sortedPosts.map((post) => (
+          {posts.map((post) => (
             <div key={post.id} className="col-md-6">
               <div className="card mb-4">
                 <div className="card-body">
@@ -77,15 +75,9 @@ function Dashboard() {
                   {post.postImage && <img src={post.postImage} alt="post" className="img-fluid mt-3" />}
                   <div className="mt-3">
                     <p><strong>{post.totalAgreed} people agreed to this post.</strong></p>
-                    <div>
-                      {/* Pass post.id to handleViewIssue */}
-                      <button
-                        className="btn btn-primary"
-                        onClick={() => handleViewIssue(post.id)}  // Navigate on button click
-                      >
-                        View Issue
-                      </button>
-                    </div>
+                    <button className="btn btn-primary" onClick={() => handleViewIssue(post.id)}>
+                      View Issue
+                    </button>
                   </div>
                 </div>
               </div>
