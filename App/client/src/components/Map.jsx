@@ -3,7 +3,7 @@ import "./Map.css";
 import axios from "axios";
 
 function Map() {
-  const APIMap = "https://thingproxy.freeboard.io/fetch/https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/analytics";
+  const APIMap = "https://wy6aef7ap7.execute-api.ap-south-1.amazonaws.com/v1/analytics";
   const [mapData, setMapData] = useState([]);
 
   useEffect(() => {
