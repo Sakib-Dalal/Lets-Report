@@ -1,34 +1,26 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function MyNavBar() {
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+    <div>
+      <Navbar expand="lg" className="bg-body-white">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Brand href="#home" className='title-color'>Let's <span className='title-report'>Report</span></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className='navtoggle'> <img src="/navbar-toggle.png" className='image-toggle' /> </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="#home" className='dropdown-content'>All reports</Nav.Link>
+            <Nav.Link href="#link" className='dropdown-content'>Local Alert</Nav.Link>
+            <Nav.Link href="#link" className='dropdown-content'>Help</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
       </Navbar>
+      
+    </div>
     </>
   );
 }

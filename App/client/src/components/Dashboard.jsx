@@ -44,8 +44,8 @@ function Dashboard() {
     fetchData();
   }, []);
 
-  const handleViewIssue = (postId) => {
-    navigate(`/post/${postId}`);
+  const handleViewIssue = (reportid) => {
+    navigate(`/post/${reportid}`);
     
   };
 
@@ -75,7 +75,7 @@ function Dashboard() {
                   {post.postImage && <img src={post.postImage} alt="post" className="img-fluid mt-3" />}
                   <div className="mt-3">
                     <p><strong>{post.totalAgreed} people agreed to this post.</strong></p>
-                    <button className="btn btn-primary" onClick={() => handleViewIssue(post.id)}>
+                    <button className="btn btn-primary" onClick={() => handleViewIssue(post.reportid)}>
                       View Issue
                     </button>
                   </div>
